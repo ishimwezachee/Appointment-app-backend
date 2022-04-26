@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
-  has_many :reservations
+  belongs_to :reservations
   has_many :users
 end
