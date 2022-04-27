@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_27_085145) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_140529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_085145) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_counter"
+    t.integer "reviews_counter"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_ratings_on_item_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -33,6 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_085145) do
     t.bigint "item_id", null: false
     t.index ["item_id"], name: "index_reservations_on_item_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_reviews_on_item_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +69,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_085145) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ratings", "items"
+  add_foreign_key "ratings", "users"
   add_foreign_key "reservations", "items"
   add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "items"
+  add_foreign_key "reviews", "users"
 end
