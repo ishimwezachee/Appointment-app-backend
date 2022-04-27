@@ -3,11 +3,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     render json: @users, status: :ok
-  end  
+  end
 
   def show
     @user = User.find(params[:id])
     render json: @user
   end
-
 end
