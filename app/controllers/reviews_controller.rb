@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     review = Review.find(params[:id])
     authorize! :destroy, review
     review.destroy
-    redirect_to ...
+    redirect_to user_item_path
   end
 
   private
