@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   resources :items
   
   resources :users do
-    resources :reservations do
-          resources :items do 
-            resources :reviews, only: %i[:create :index]
-            resources :ratings, only: %i[:create :index]
-          end        
+    resources :items do
+          resources :reservations
+          resources :reviews, only: %i[:create :destroy :index]
+          resources :ratings, only: %i[:create :index]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
