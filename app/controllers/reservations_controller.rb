@@ -8,6 +8,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
+  def show
+    @reservation = Reservation.find(params[:id])
+    render json: @reservation, status: :ok
+  end
+
   def create
     @reservation = Reservation.new(reservation_params)
     return render json: @reservation.errors, status: :unprocessable_entity unless @reservation.save
