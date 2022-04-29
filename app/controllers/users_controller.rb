@@ -1,12 +1,52 @@
+# app/controllers/users_controller.rb
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
   def index
     @users = User.all
-    render json: @users, status: :ok
+    if @users
+      render json: {
+        users: @users
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['no users found']
+      }
+    end
   end
 
   def show
     @user = User.find(params[:id])
-    render json: @user
+    if @user
+      render json: {
+        user: @user
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['user not found']
+      }
+    end
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      login!
+      render json: {
+        status: :created,
+        user: @user
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @user.errors.full_messages
+      }
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :password, :password_confirmation)
   end
 end

@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   get 'reviews/index'
   get 'ratings/index'
-  devise_for :users
+  get '/logged_in', to: 'sessions#is_logged_in?'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/logged_in', to: 'sessions#is_logged_in?'
   resources :items
   
-  resources :users do
+  resources :users, only: [:create, :show, :index] do
     resources :items do
           resources :reservations
           resources :reviews, only: %i[:create :destroy :index]
