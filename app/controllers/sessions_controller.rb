@@ -1,6 +1,5 @@
 # app/controllers/sessions_controller.rb
 class SessionsController < ApplicationController
-    
   def create
     @user = User.find_by(name: session_params[:name])
 
@@ -18,7 +17,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def is_logged_in?
+  def logged_in?
     if logged_in? && current_user
       render json: {
         logged_in: true,
