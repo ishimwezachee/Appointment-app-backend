@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   get 'reviews/index'
   get 'ratings/index'
-  get '/logged_in', to: 'sessions#is_logged_in?'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  # get '/logged_in', to: 'sessions#is_logged_in?'
+  # post '/login', to: 'sessions#create'
+  # delete '/logout', to: 'sessions#destroy'
+  # get '/logged_in', to: 'sessions#is_logged_in?'
+  post '/login',    to: 'sessions#create'
+  post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'
   resources :items
   

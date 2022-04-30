@@ -5,6 +5,6 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   has_secure_password
   has_many :reservations, dependent: :destroy
-  validates :name, presence: true, uniqueness: true, length: { minimum: 4 }
-  validates :email, uniqueness: true
+  validates :name, presence: true
+  validates :email, presence: true
 end
