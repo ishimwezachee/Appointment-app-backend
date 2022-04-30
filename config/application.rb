@@ -10,6 +10,8 @@ module AppointmentBackendApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.middleware.use ActionDispatch::Cookies   
+    config.middleware.use ActionDispatch::Session::CookieStore
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -18,16 +20,16 @@ module AppointmentBackendApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*',
-          :headers => :any,
-          :methods => [:post]
-        resource '*',
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-    end
+    # Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*',
+    #       :headers => :any,
+    #       :methods => [:post]
+    #     resource '*',
+    #       headers: :any,
+    #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    #   end
+    # end
   end
 end
