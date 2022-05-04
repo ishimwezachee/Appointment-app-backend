@@ -26,7 +26,6 @@ class ReservationsController < ApplicationController
     reservation.destroy
   end
 
-
   private
 
   def reservation_params
