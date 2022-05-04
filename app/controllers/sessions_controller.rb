@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def is_logged_in?
+  def islogged_in?
     if logged_in? && current_user
       render json: {
         logged_in: true,
