@@ -20,9 +20,15 @@ class ReservationsController < ApplicationController
     render json: @reservation, status: :created
   end
 
+  def destroy
+    reservation = Reservation.find(params[:id])
+    # authorized_user? :destroy, reservation
+    reservation.destroy
+  end
+
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_time, :end_time, :item_id, :user_id)
+    params.require(:reservation).permit(:start_time, :end_time, :visit_type, :item_id, :user_id)
   end
 end
