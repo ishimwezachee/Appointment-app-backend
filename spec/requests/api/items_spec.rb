@@ -16,6 +16,7 @@ RSpec.describe '/items', type: :request do
       end
     end
   end
+  # rubocop:disable Metrics/BlockLength
 
   post('get an item') do
     tags 'Items'
@@ -103,4 +104,5 @@ RSpec.describe 'Items', type: :request do
       end
     end
   end
+  # rubocop:enable Metrics/BlockLength
 end
