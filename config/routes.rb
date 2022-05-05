@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#islogged_in?'
   resources :items
+  resources :reservations
   
   resources :users, only: [:create, :show, :index] do
     resources :items do

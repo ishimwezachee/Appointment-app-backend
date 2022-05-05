@@ -44,9 +44,8 @@ RSpec.describe '/items', type: :request do
             example: JSON.parse(response.body, symbolize_names: true)
           }
         }
-        let(:item) do
-          { name: 'Gints', title: 'Speciality', description: 'Really a good dr.', image: 'https://avatars.githubusercontent.com/u/43877689?v=4', price: 100, location: 'LA' }
-        end
+        let(:item) { { name: 'Gints', title: 'Speciality', description: 'Really a good dr.', image: 'https://avatars.githubusercontent.com/u/43877689?v=4', price: 100, location: 'LA' }}
+      
         run_test!
       end
     end
@@ -79,12 +78,12 @@ RSpec.describe 'Items', type: :request do
           item: {
             type: :object,
             properties: {
-              name: { type: :string },
-              title: { type: :string },
-              price: { type: :integer },
-              description: { type: :string },
-              location: { type: :string },
-              image: { type: :string }
+            name: { type: :string },
+            title: { type: :string },
+            price: { type: :integer },
+            description: { type: :string },
+            location: { type: :string },
+            image: { type: :string }
             },
             required: %w[name price description location image]
           }

@@ -130,21 +130,6 @@ paths:
       responses:
         '200':
           description: successful
-  "/users/{id}":
-    get:
-      summary: Retrieves a User
-      tags:
-      - Users
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: user found
-  "/login":
     post:
       summary: create user
       tags:
@@ -175,6 +160,20 @@ paths:
                   - email
                   - password
         required: true
+  "/users/{id}":
+    get:
+      summary: Retrieves a User
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
 servers:
 - url: https://{defaultHost}
   variables:
