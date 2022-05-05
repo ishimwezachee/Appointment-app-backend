@@ -1,6 +1,6 @@
-User.create(name: 'Roland', email: 'roland@gamil.com', password: '123456', )
+User.create(name: 'Roland', email: 'roland@gamil.com', password: '123456' )
 
-Item.create(name: 'Gints', title: 'Speciality', description: 'Really a good dr.', image: 'https://avatars.githubusercontent.com/u/43877689?v=4', price: 100)
+Item.create(name: 'Gints', title: 'Speciality', description: 'Really a good dr.', image: 'https://avatars.githubusercontent.com/u/43877689?v=4', price: 100, location: 'LA')
 
 Item.create(name: 'Aku', title: 'Doctor', description: 'Really a good dr. to be', image: 'https://avatars.githubusercontent.com/u/43877689?v=4', price: 200)
 
