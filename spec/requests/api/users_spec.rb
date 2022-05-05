@@ -27,7 +27,7 @@ RSpec.describe '/users', type: :request do
           properties: {
             name: { type: :string },
             email: { type: :string },
-            password: { type: :integer },
+            password: { type: :string },
             password_confirmation: { type: :string }
           },
           required: %w[name email password password_confirmation]
@@ -68,7 +68,7 @@ RSpec.describe '/users', type: :request do
 end
 
 RSpec.describe 'users post', type: :request do
-  path '/users' do
+  path '/login' do
     post('create user') do
       tags 'Users'
       consumes 'application/json'
@@ -79,9 +79,11 @@ RSpec.describe 'users post', type: :request do
             type: :object,
             properties: {
               name: { type: :string },
-              email: { type: :string }
+              email: { type: :string },
+              password: { type: :string}, 
+              password_confirmation: { type: :string} 
             },
-            required: %w[name email]
+            required: %w[name email password]
           }
         }
       }
