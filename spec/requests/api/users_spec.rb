@@ -80,8 +80,8 @@ RSpec.describe 'users post', type: :request do
             properties: {
               name: { type: :string },
               email: { type: :string },
-              password: { type: :string}, 
-              password_confirmation: { type: :string} 
+              password: { type: :string },
+              password_confirmation: { type: :string }
             },
             required: %w[name email password]
           }
