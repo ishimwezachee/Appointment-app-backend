@@ -68,7 +68,7 @@ RSpec.describe '/users', type: :request do
 end
 
 RSpec.describe 'users post', type: :request do
-  path '/login' do
+  path '/users' do
     post('create user') do
       tags 'Users'
       consumes 'application/json'
