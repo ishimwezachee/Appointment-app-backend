@@ -20,52 +20,52 @@ RSpec.describe '/users', type: :request do
   post('create an User') do
     tags 'Users'
     parameter name: :user, in: :body, required: true, schema: {
-        type: :object,
-        properties: {
-          user: {
-            type: :object,
-            properties: {
-              name: { type: :string },
-              email: { type: :string },
-              password: { type: :integer },
-              password_confirmation: { type: :string }
-            },
-            required: %w[name email password password_confirmation ]
-          }
+      type: :object,
+      properties: {
+        user: {
+          type: :object,
+          properties: {
+            name: { type: :string },
+            email: { type: :string },
+            password: { type: :integer },
+            password_confirmation: { type: :string }
+          },
+          required: %w[name email password password_confirmation]
         }
+      }
     }
     response(201, 'successful') do
-        after do |example|
-            example.metadata[:response][:content] = {
-                'application/json' => {
-                    example: JSON.parse(response.body, symbolize_names: true)
-                }
-            }
-            let(:user) do 
-                { name: 'Gints', email: 'foo', password: '123456', password_confirmation: '123456' }
-            end
-            run_test!
+      after do |example|
+        example.metadata[:response][:content] = {
+          'application/json' => {
+            example: JSON.parse(response.body, symbolize_names: true)
+          }
+        }
+        let(:user) do
+          { name: 'Gints', email: 'foo', password: '123456', password_confirmation: '123456' }
         end
+        run_test!
+      end
     end
   end
 end
 
 RSpec.describe '/users', type: :request do
-    path '/users/{id}' do
-        get 'Retrieves a User' do
-        tags 'Users'
-        produces 'application/json', 'application/xml'
-        parameter name: :id, in: :path, type: :string
+  path '/users/{id}' do
+    get 'Retrieves a User' do
+      tags 'Users'
+      produces 'application/json', 'application/xml'
+      parameter name: :id, in: :path, type: :string
 
-            response '200', 'user found' do
-            let(:id) { User.create( name: 'Gints', email: 'foo', password: '123456', password_confirmation: '123456').id }
-            run_test!
-            end
+      response '200', 'user found' do
+        let(:id) do
+          User.create(name: 'Gints', email: 'foo', password: '123456', password_confirmation: '123456').id
         end
+        run_test!
+      end
     end
-
+  end
 end
-
 
 RSpec.describe 'users post', type: :request do
   path '/users' do
