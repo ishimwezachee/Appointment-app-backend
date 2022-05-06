@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
 # Appointment-app-backend
 In this app, User can login/sign up. The user can see the list of doctors.
 Then the user can booked an appointment to see the doctor in a specific date.
@@ -6,10 +8,8 @@ The app is using for genrating api endpints with(create/view/delete/update ) fun
 
 ## Built With
 
-- Ruby
-- Ruby on Rails
-- Javascript
-- React
+![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white) &nbsp; &nbsp; <img src="https://1ohvy81v7br01wtgnj4bf0ek-wpengine.netdna-ssl.com/wp-content/uploads/2019/01/rspec.jpg" height="28" width="60" alt="RSpec"> &nbsp; &nbsp; ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) &nbsp; &nbsp; ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
 ## Getting Started
 
 This endpint will genrate list of items:
@@ -92,7 +92,7 @@ rails server
 
 Open http://localhost:3001/ in your browser.
 
-UI-PULL-REQUEST: [ui-pull-request-link](https://github.com/ishimwezachee/hello-react-front-end/pull/1)
+UI-PULL-REQUEST: [ui-pull-request-link](https://github.com/ishimwezachee/Appointement-app-UI/pull/6)
 
 ### Run tests
 
