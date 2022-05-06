@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   get 'reviews/index'
   get 'ratings/index'
   # get '/logged_in', to: 'sessions#is_logged_in?'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#islogged_in?'
   resources :items
+  resources :reservations
   
   resources :users, only: [:create, :show, :index] do
     resources :items do
