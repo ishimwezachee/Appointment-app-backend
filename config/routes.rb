@@ -3,15 +3,9 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   get 'reviews/index'
   get 'ratings/index'
-  # get '/logged_in', to: 'sessions#is_logged_in?'
-  # post '/login', to: 'sessions#create'
-  # delete '/logout', to: 'sessions#destroy'
-  # get '/logged_in', to: 'sessions#is_logged_in?'
   post '/login',    to: 'sessions#create'
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#islogged_in?'
-  resources :items
-  resources :reservations
   
   resources :users, only: [:create, :show, :index] do
     resources :items do
@@ -20,11 +14,7 @@ Rails.application.routes.draw do
           resources :ratings, only: %i[:create :index]
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
   root to: "users#index"
-  # reservations/id/items
 
 end
