@@ -22,7 +22,6 @@ class ReservationsController < ApplicationController
 
   def destroy
     reservation = Reservation.find(params[:id])
-    # authorized_user? :destroy, reservation
     reservation.destroy
   end
 

@@ -15,13 +15,6 @@ class ReviewsController < ApplicationController
     @new_review.user_id = @item.id
     @new_review.item_id = params[:item_id]
     @new_review.update_reviews_counter
-
-    # if @new_review.save
-    #   flash[:notice] = 'Comment created'
-    # else
-    #   flash.now[:error] = 'Failed to created'
-    # end
-    # redirect_to "users/#{user.user_id}/reservations..."
   end
 
   def destroy
