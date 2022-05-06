@@ -1,7 +1,7 @@
 # Appointment-app-backend
 In this app, User can login/sign up. The user can see the list of doctors.
 Then the user can booked an appointment to see the doctor in a specific date.
-Also, the user can remove a reseved appointment
+Also, the user can remove a reserved appointment
 
 ## Built With
 
