@@ -1,7 +1,8 @@
 # Appointment-app-backend
 In this app, User can login/sign up. The user can see the list of doctors.
 Then the user can booked an appointment to see the doctor in a specific date.
-Also, the user can remove a reserved appointment
+Also, the user can remove an appointment
+The app is using for genrating api endpints with(create/view/delete/update ) functions.
 
 ## Built With
 
@@ -11,13 +12,58 @@ Also, the user can remove a reserved appointment
 - React
 ## Getting Started
 
+This endpint will genrate list of items:
+
+http://localhost:3001/items
+
+```
+[
+  {
+    "id": 1,
+    "name": "Gints",
+    "title": "Dentist",
+    "description": "Really a good dr.",
+    "image": "https://avatars.githubusercontent.com/u/43877689?v=4",
+    "price": null,
+    "created_at": "2022-05-06T10:22:58.041Z",
+    "updated_at": "2022-05-06T10:22:58.041Z",
+    "likes_counter": null,
+    "reviews_counter": null,
+    "location": null
+  }]
+
+```
+This will show the list of reservations:
+
+http://localhost:3001/reservations
+```
+[
+  {
+    "id": 1,
+    "created_at": "2022-05-06T10:22:58.325Z",
+    "updated_at": "2022-05-06T10:22:58.325Z",
+    "user_id": 1,
+    "item_id": 1,
+    "visit_type": "reservation1",
+    "start_time": "2022-05-19",
+    "end_time": "2022-05-20"
+  }]
+  ```
+
+  If you prefer to clone the project locally, you can also get to the docs by navigating to http://localhost:3001/api-docs/index.html. There you will see a list of all endpoints and their descriptions.
+
 To get a local copy up and running follow these simple example steps.
+
+
 
 git clone https://github.com/ishimwezachee/hello-rails-back-end.git
 
 cd hello-rails-back-end
 
 ### Setup
+
+
+
 
 Install npm with:
 
@@ -34,6 +80,7 @@ Setup database with:
 ```
 rails db:create
 rails db:migrate
+
 ```
 ### Usage
 
@@ -66,6 +113,10 @@ run the test with:
 ```
 rspec spec
 ```
+API DOC:
+
+
+
 
 👤 **Zachee Ishimwe**
 
