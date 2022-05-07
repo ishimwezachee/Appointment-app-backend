@@ -1,0 +1,181 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/items":
+    get:
+      summary: list Items
+      tags:
+      - Items
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create Items
+      tags:
+      - Items
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    title:
+                      type: string
+                    price:
+                      type: integer
+                    description:
+                      type: string
+                    location:
+                      type: string
+                    image:
+                      type: string
+                  required:
+                  - name
+                  - price
+                  - description
+                  - location
+                  - image
+        required: true
+  "/items/{id}":
+    get:
+      summary: Retrieves a Item
+      tags:
+      - Items
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+  "/reservations":
+    get:
+      summary: list all Reservation
+      tags:
+      - reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create Reservation
+      tags:
+      - Reservation
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    user_id:
+                      type: integer
+                    item_id:
+                      type: integer
+                    start_date:
+                      type: string
+                    end_date:
+                      type: string
+                  required:
+                  - user_id
+                  - item_id
+                  - start_date
+                  - end_date
+        required: true
+  "/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a Reservation
+      tags:
+      - reservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: 'Reservation '
+  "/users":
+    get:
+      summary: list users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    password_confirmation:
+                      type: string
+                  required:
+                  - name
+                  - email
+                  - password
+        required: true
+  "/users/{id}":
+    get:
+      summary: Retrieves a User
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
